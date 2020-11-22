@@ -201,8 +201,8 @@ input,select{vertical-align:middle}
 @media screen and (max-width:540px){
 #window0 .wincontent {	width: 230px; height: 200px;	}
 #window3 .wincontent {
-    width: 275px;
-    height: auto;
+    width: 600px; 
+    height: 850px;
 }
 #window3 {    top: 9px;    left: 10px;	}
 #window2 {    left: -118px;	}
