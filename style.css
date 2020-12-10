@@ -1,0 +1,10 @@
+@font-face {
+    font-family: PS2;
+    src: url("./fonts/PressStart2P-Regular.ttf");
+    font-family: zpix;
+    src: url("./fonts/zpix.ttf");
+}
+
+* {
+    font-family: PS2,zpix;
+}
