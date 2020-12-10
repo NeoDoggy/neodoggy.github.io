@@ -1,9 +1,43 @@
+/*fonts*/
 @font-face {
     font-family: PS2;
-    src: url("./fonts/PressStart2P-Regular.ttf");
+    src: url("./fonts/PressStart2P-Regular.ttf") format('truetype');
+}
+@font-face {
     font-family: zpix;
-    src: url("./fonts/zpix.ttf");
+    src: url("./fonts/zpix.woff2") format('woff2');
 }
-* {
-    font-family: "PS2,zpix";
+
+/*main settings->div*/
+body {
+    font-family: zpix;
+    background-color: rgb(39, 39, 39);
 }
+div.main{
+    margin: 30;
+}
+div.left_L_br h1{
+    width: 100px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+}
+.gf{
+    color: rgb(116, 233, 0);
+    font-size: 20px;
+    text-decoration: none;
+}
+.gf:hover{
+    color: rgb(105, 209, 0);
+    text-decoration: none;
+}
+.gf_L{
+    color: rgb(116, 233, 0);
+    font-size: 60px;
+    text-decoration: none;
+}
+.gf_L:hover{
+    color: rgb(105, 209, 0);
+    text-decoration: none;
+}
+/*typer*/
