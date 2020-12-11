@@ -17,6 +17,7 @@ div.main{
     margin: 30;
 }
 div.left_L_br h1{
+    margin: auto;
     width: 100px;
     height: 50px;
     top: 50%;
