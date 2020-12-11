@@ -1,4 +1,5 @@
 // script.js
+import "nes.css/css/nes.min.css";
 //typer
 var TxtType = function(el, toRotate, period) 
 {
