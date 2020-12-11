@@ -72,7 +72,7 @@ window.onload = function()
 };
 //typer end
 
-//spark
+//flash
 window.addEventListener("load", function() 
 {
     var f = document.getElementById('flash_text');
@@ -81,3 +81,4 @@ window.addEventListener("load", function()
         f.style.display = (f.style.display == 'none' ? '' : 'none');
     }, 500);
 }, false);
+//flash end
