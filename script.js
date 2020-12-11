@@ -71,3 +71,13 @@ window.onload = function()
     document.body.appendChild(css);
 };
 //typer end
+
+//spark
+window.addEventListener("load", function() 
+{
+    var f = document.getElementById('flash_text');
+    setInterval(function() 
+    {
+        f.style.display = (f.style.display == 'none' ? '' : 'none');
+    }, 500);
+}, false);
