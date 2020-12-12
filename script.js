@@ -81,63 +81,32 @@ window.addEventListener("load", function()
         f.style.display = (f.style.display == 'none' ? '' : 'none');
     }, 500);
 }, false);
+
+window.addEventListener("load", function() 
+{
+    var f = document.getElementById('flash_text_750');
+    setInterval(function() 
+    {
+        f.style.display = (f.style.display == 'none' ? '' : 'none');
+    }, 750);
+}, false);
 //flash end
 
-//get ?
-function get_URL()
+//page
+function pg()
 {
-    var lang=document.getElementById("lang");
-    if(lang==null)
-    {
-        window.location.replace("./en/index.html");
-    }
-    /*
-    else if(lang=="chinese")
-    {
-        window.location.replace("../zh-tw/index.html");
-    }
-    else
-    {
-        window.location.replace("../en/index.html");
-    }
-    */
-   alert(lang)
-}
-
-//trash
-function trash()
-{
-    var strUrl = location.search;
-    var getPara, ParaVal;
-    var aryPara = [];
-    if (strUrl.indexOf("?") != -1) 
-    {
-        if(strUrl.indexOf("?") != "lang")
-        {
-            window.location.replace("./en/index.html");
-        }
-        else
-        {
-            var getSearch = strUrl.split("?");
-            getPara = getSearch[1].split("&");
-            for (i = 0; i < getPara.length; i++) 
-            {
-                ParaVal = getPara[i].split("=");
-                aryPara.push(ParaVal[0]);
-                aryPara[ParaVal[0]] = ParaVal[1];
-            }
-            if(ParaVal[1]=="zh-tw")
-            {
-                window.location.replace("./zh-tw/index.html");
-            }
-            else
-            {
-                window.location.replace("./en/index.html");
+    var Total_Obj = document.getElementsByTagName("INPUT");
+    var Str = "";
+    for (var i = 0; i < Total_Obj.length; i++) {
+        if (Total_Obj[i].type == "radio") {
+            if (Total_Obj[i].checked) {
+                if (Str == "") {
+                    Str = Total_Obj[i].value;
+                } else {
+                    Str += Total_Obj[i].value;
+                }
             }
         }
     }
-    else
-    {
-        window.location.replace("./en/index.html");
-    }
+    window.location.replace("../"+Str+"/index.html");
 }

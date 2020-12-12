@@ -13,8 +13,11 @@ body {
     font-family: zpix,PS2;
     background-color: rgb(39, 39, 39);
 }
-div.main{
-    margin: 30;
+div.main.mrg30{
+    margin: 30px;
+}
+div.main.mrg10{
+    margin: 10px;
 }
 div.left_L_br h1{
     margin: auto;
@@ -53,4 +56,4 @@ div.left_L_br h1{
     display: flex;
     justify-content: center;
 }
-/*typer*/
+/*glitch*/

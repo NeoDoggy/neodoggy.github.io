@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>mainpage - doggy's site</title>
+        <link rel="shortcut icon" href="../img/favicon.png"/>
+        <link rel="stylesheet" href="../nes.css/css/nes.css">
+        <link rel="stylesheet" href="../style.css">
+        <script src="../script.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="nescss">
+                <div class="main mrg10">
+                    <span class="gf" style="margin: 10px;">
+                        > pwd ==> <span id="flash_text_750">projects</span>
+                        <div style="background-color:#272727; padding: 10px 0;size: 10%;">
+                            <label>
+                                <input type="radio" class="nes-radio is-dark"  name="page" id="pg" value="main"/>
+                                <span>mainpage</span>
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" class="nes-radio is-dark" name="page" id="pg" value="whoamI"/>
+                                <span>whoamI</span>
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" class="nes-radio is-dark" style="margin-left: 20px;" name="page" id="pg" value="projects" checked/>
+                                <span>projects</span>
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" class="nes-radio is-dark" name="page" id="pg" value="links"/>
+                                <span>links</span>
+                            </label>
+                            <br>
+                            <button type="button" class="nes-btn is-success" style="margin-left: 25px;" onclick="pg()">./go</button>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
