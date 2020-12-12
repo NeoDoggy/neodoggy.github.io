@@ -48,10 +48,9 @@ div.left_L_br h1{
     font-size: 60px;
 }
 .bottom_C{
-    position: absolute;
-    bottom: 5px;
+    bottom: 10px;
     text-align: center;
-    margin-block-start: 30%;
-    margin-block-end: 70%;
+    display: flex;
+    justify-content: center;
 }
 /*typer*/
