@@ -82,3 +82,61 @@ window.addEventListener("load", function()
     }, 500);
 }, false);
 //flash end
+
+//get ?
+function get_URL()
+{
+    var lang=document.getElementById("lang");
+    if(lang==null)
+    {
+        window.location.replace("./en/index.html");
+    }
+    /*
+    else if(lang=="chinese")
+    {
+        window.location.replace("../zh-tw/index.html");
+    }
+    else
+    {
+        window.location.replace("../en/index.html");
+    }
+    */
+   alert(lang)
+}
+
+function trash()
+{
+    var strUrl = location.search;
+    var getPara, ParaVal;
+    var aryPara = [];
+    if (strUrl.indexOf("?") != -1) 
+    {
+        if(strUrl.indexOf("?") != "lang")
+        {
+            window.location.replace("./en/index.html");
+        }
+        else
+        {
+            var getSearch = strUrl.split("?");
+            getPara = getSearch[1].split("&");
+            for (i = 0; i < getPara.length; i++) 
+            {
+                ParaVal = getPara[i].split("=");
+                aryPara.push(ParaVal[0]);
+                aryPara[ParaVal[0]] = ParaVal[1];
+            }
+            if(ParaVal[1]=="zh-tw")
+            {
+                window.location.replace("./zh-tw/index.html");
+            }
+            else
+            {
+                window.location.replace("./en/index.html");
+            }
+        }
+    }
+    else
+    {
+        window.location.replace("./en/index.html");
+    }
+}
