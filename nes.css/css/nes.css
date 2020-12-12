@@ -1150,7 +1150,7 @@ input[type="checkbox"] {
   position: relative;
   margin: 4px;
   color: #fff;
-  background-color: #212529;
+  background-color: #272727;
   border-color: white;
 }
 
@@ -1162,12 +1162,12 @@ input[type="checkbox"] {
   left: -7.2px;
   z-index: -1;
   content: "";
-  background-color: #212529;
+  background-color: #272727;
 }
 
 .nes-container.is-dark.with-title > .title {
   color: #fff;
-  background-color: #212529;
+  background-color: #272727;
 }
 
 .nes-container.is-rounded {
