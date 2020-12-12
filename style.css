@@ -38,9 +38,11 @@ div.left_L_br h1{
     color: rgb(116, 233, 0);
     font-size: 60px;
 }
-.bottom_R{
+.bottom_C{
     position: absolute;
     bottom: 5px;
-    right: 30px;
+    text-align: center;
+    margin-block-start: 30%;
+    margin-block-end: 70%;
 }
 /*typer*/

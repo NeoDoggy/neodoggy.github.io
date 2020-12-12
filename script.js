@@ -39,12 +39,12 @@ TxtType.prototype.tick = function()
     {
         delta = this.period;
         this.isDeleting = true;
-    } 
+    }
     else if (this.isDeleting && this.txt === '') 
     {
         this.isDeleting = false;
         this.loopNum++;
-        delta = 500;
+        delta = 500; 
     }
 
     setTimeout(function() {
