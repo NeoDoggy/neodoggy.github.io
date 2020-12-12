@@ -104,6 +104,7 @@ function get_URL()
    alert(lang)
 }
 
+//trash
 function trash()
 {
     var strUrl = location.search;
