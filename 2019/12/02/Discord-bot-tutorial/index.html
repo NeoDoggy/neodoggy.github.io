@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="如何製作Discord機器人:mega: 如何開始？步驟一：先到這裡下載範本喔！(github下載應該會ㄅ？大致講一下，範例裡包括各個所需要用到的資料。當然也包括今天主角，最重要的資料夾—&#x3D;&#x3D;node_modules&#x3D;&#x3D;:rocket: 步驟二：下載完資料夾解壓縮後應該是沒辦法啟動喇~所以呢、我們需要東西來運行我們的JS檔。這時…NodeJS就被用上了！NodeJS是啥呢？根據萌娘…維基百科可以得">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Discord bot tutorial">
+<meta property="og:url" content="http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/index.html">
+<meta property="og:site_name" content="neodoggy&#39;s blog">
+<meta property="og:description" content="如何製作Discord機器人:mega: 如何開始？步驟一：先到這裡下載範本喔！(github下載應該會ㄅ？大致講一下，範例裡包括各個所需要用到的資料。當然也包括今天主角，最重要的資料夾—&#x3D;&#x3D;node_modules&#x3D;&#x3D;:rocket: 步驟二：下載完資料夾解壓縮後應該是沒辦法啟動喇~所以呢、我們需要東西來運行我們的JS檔。這時…NodeJS就被用上了！NodeJS是啥呢？根據萌娘…維基百科可以得">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.imgur.com/j3LaZAE.png">
+<meta property="og:image" content="https://i.imgur.com/P9xm2gp.png">
+<meta property="og:image" content="https://i.imgur.com/Mhs4ZsL.png">
+<meta property="og:image" content="https://i.imgur.com/zNDXVp9.png">
+<meta property="og:image" content="https://i.imgur.com/qHpULBd.png">
+<meta property="og:image" content="https://i.imgur.com/8NRzNa6.png">
+<meta property="og:image" content="https://i.imgur.com/oSAAxWu.png">
+<meta property="og:image" content="https://i.imgur.com/re1X1Hp.png">
+<meta property="og:image" content="https://i.imgur.com/CG7yhBY.png">
+<meta property="og:image" content="https://i.imgur.com/0SMrQUU.png">
+<meta property="og:image" content="https://i.imgur.com/9x1pxoO.png">
+<meta property="og:image" content="https://i.imgur.com/LvJnRYs.png">
+<meta property="og:image" content="https://i.imgur.com/sO3X4xX.png">
+<meta property="og:image" content="https://i.imgur.com/j05a7ih.png">
+<meta property="article:published_time" content="2019-12-02T08:27:46.000Z">
+<meta property="article:modified_time" content="2021-12-02T08:30:16.798Z">
+<meta property="article:author" content="neodoggy">
+<meta property="article:tag" content="coding">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="app-dev">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/j3LaZAE.png">
+    
+    
+      
+        
+          
+            <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b375e755015713138c17020ed92e3d3b?s=48">
+          
+        
+      
+      
+        
+          
+            <link rel="icon" type="image/png" href="https://www.gravatar.com/avatar/b375e755015713138c17020ed92e3d3b?s=192" sizes="192x192">
+          
+        
+      
+      
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/b375e755015713138c17020ed92e3d3b?s=180">
+          
+        
+      
+    
+    <!-- title -->
+    <title>Discord bot tutorial</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Articles</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Categories</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tags</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2021/12/02/hello-world/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&text=Discord bot tutorial"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&title=Discord bot tutorial"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&is_video=false&description=Discord bot tutorial"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Discord bot tutorial&body=Check out this article: http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&title=Discord bot tutorial"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&title=Discord bot tutorial"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&title=Discord bot tutorial"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&title=Discord bot tutorial"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&name=Discord bot tutorial&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&t=Discord bot tutorial"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A3%BD%E4%BD%9CDiscord%E6%A9%9F%E5%99%A8%E4%BA%BA"><span class="toc-number">1.</span> <span class="toc-text">如何製作Discord機器人</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mega-%E5%A6%82%E4%BD%95%E9%96%8B%E5%A7%8B%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">:mega: 如何開始？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">步驟一：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A"><span class="toc-number">1.1.2.</span> <span class="toc-text">步驟二：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89%EF%BC%9A"><span class="toc-number">1.1.3.</span> <span class="toc-text">步驟三：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pencil-%E5%AF%A6%E4%BD%9C%E5%9B%89%EF%BC%81"><span class="toc-number">1.2.</span> <span class="toc-text">:pencil: 實作囉！</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%96%E5%82%99%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">準備：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AA%AA%E6%98%8E%E4%B8%80-%EF%BD%A2%E5%87%BD%E5%BC%8F%E5%BA%AB%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.2.2.</span> <span class="toc-text">說明一 ｢函式庫｣：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B4%B0%E8%AA%AA%EF%BC%9A"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">細說：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%A1%8C%EF%BC%9A"><span class="toc-number">1.2.2.1.1.</span> <span class="toc-text">第一行：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%A1%8C%EF%BC%9A"><span class="toc-number">1.2.2.1.2.</span> <span class="toc-text">第二行：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%A1%8C%EF%BC%9A"><span class="toc-number">1.2.2.1.3.</span> <span class="toc-text">第三行：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AA%AA%E6%98%8E%E4%BA%8C-%EF%BD%A2%E9%96%8B%E6%A9%9F%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.2.3.</span> <span class="toc-text">說明二 ｢開機｣：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AA%AA%E6%98%8E%E4%B8%89-%EF%BD%A2%E4%B8%BB%E7%A8%8B%E5%BC%8F%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.2.4.</span> <span class="toc-text">說明三 ｢主程式｣：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AA%AA%E6%98%8E%E5%9B%9B-%EF%BD%A2%E5%9B%9E%E7%AD%94%E6%88%91%E5%95%8A%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.2.5.</span> <span class="toc-text">說明四 ｢回答我啊｣：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AA%AA%E6%98%8E%E4%BA%94-%EF%BD%A2settings-json%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.2.6.</span> <span class="toc-text">說明五 ｢settings.json｣：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dog-%E5%88%9D%E6%8E%A2Discord-Devloper-Portal"><span class="toc-number">1.3.</span> <span class="toc-text">:dog: 初探Discord Devloper Portal</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80-%EF%BD%A2%E9%96%8B%E4%BD%BF%E5%BB%BA%E7%AB%8B%E4%BD%A0%E7%9A%84%E6%A9%9F%E5%99%A8%E4%BA%BA%E5%90%A7%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.3.1.</span> <span class="toc-text">步驟一 ｢開使建立你的機器人吧｣：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C-%EF%BD%A2%E5%8A%A0%E5%85%A5%E4%BD%A0%E7%9A%84Discord%E4%BC%BA%E6%9C%8D%E5%99%A8%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.3.2.</span> <span class="toc-text">步驟二 ｢加入你的Discord伺服器｣：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89-%EF%BD%A2%E5%90%88%E9%AB%94%EF%BC%81%EF%BC%81%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.3.3.</span> <span class="toc-text">步驟三 ｢合體！！｣：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E5%9B%9B-%EF%BD%A2%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%EF%BC%81%EF%BC%81%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.3.4.</span> <span class="toc-text">步驟四 ｢スタート！！｣：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gear-%E6%B8%AC%E8%A9%A6%E7%9C%8B%E7%9C%8B%E3%84%85"><span class="toc-number">1.4.</span> <span class="toc-text">:gear: 測試看看ㄅ</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#copyrights-by-%E3%83%8B%E3%82%AA-do-not-disturb"><span class="toc-number">1.4.0.0.0.1.</span> <span class="toc-text"> copyrights by ニオ, do not disturb. </span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Discord bot tutorial
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">neodoggy</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-12-02T08:27:46.000Z" itemprop="datePublished">2019-12-02</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/devloping/">devloping</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/app-dev/" rel="tag">app-dev</a>, <a class="tag-link-link" href="/tags/coding/" rel="tag">coding</a>, <a class="tag-link-link" href="/tags/js/" rel="tag">js</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="如何製作Discord機器人"><a href="#如何製作Discord機器人" class="headerlink" title="如何製作Discord機器人"></a>如何製作Discord機器人</h1><h2 id="mega-如何開始？"><a href="#mega-如何開始？" class="headerlink" title=":mega: 如何開始？"></a>:mega: 如何開始？</h2><h3 id="步驟一："><a href="#步驟一：" class="headerlink" title="步驟一："></a><i class="fa fa-cube" aria-hidden="true"></i>步驟一：</h3><p>先到<a target="_blank" rel="noopener" href="https://github.com/NeoDoggy/DiscordBot">這裡</a>下載範本喔！(github下載應該會ㄅ？<br>大致講一下，範例裡包括各個所需要用到的資料。當然也包括今天主角，最重要的資料夾—==<strong>node_modules</strong>==:rocket:</p>
+<h3 id="步驟二："><a href="#步驟二：" class="headerlink" title="步驟二："></a><i class="fa fa-cube" aria-hidden="true"></i>步驟二：</h3><p>下載完資料夾解壓縮後應該是沒辦法啟動喇~所以呢、我們需要東西來運行我們的JS檔。<br>這時…NodeJS就被用上了！<br>NodeJS是啥呢？根據<del>萌娘</del>…維基百科可以得知以下資訊</p>
+<blockquote>
+<p>Node.js 是能夠在伺服器端運行 JavaScript 的開放原始碼、跨平台 JavaScript 執行環境。Node.js 由 Node.js Foundation（已與 JS Foundation 合併為 OpenJS Foundation）持有和維護，亦為 Linux 基金會的專案。Node.js採用Google開發的V8執行程式碼，使用事件驅動、非阻塞和非同步輸入輸出模型等技術來提高效能，可最佳化應用程式的傳輸量和規模。這些技術通常用於資料密集的即時應用程式。<br>Node.js大部分基本模組都用JavaScript語言編寫。在Node.js出現之前，JavaScript通常作為用戶端程式設計語言使用，以JavaScript寫出的程式常在用戶的瀏覽器上執行。Node.js的出現使JavaScript也能用於伺服器端編程。Node.js含有一系列內置模組，使得程式可以脫離Apache HTTP Server或IIS，作為獨立伺服器執行。[color=#497399]</p>
+<blockquote>
+<p>目前，Node.js已被IBM、Microsoft、Yahoo!、Walmart、Groupon、SAP、LinkedIn、Rakuten、PayPal、Voxer、GoDaddy…等企業採用。</p>
+</blockquote>
+</blockquote>
+<p>我們今天所使用的資料夾即為其中的discord.js資料(包)夾第11.6.3版本。<br>附錄：</p>
+<ol>
+<li>windows安裝Node.js—[<a target="_blank" rel="noopener" href="https://nodejs.org/en/">載點</a>]</li>
+<li>git bash—<a href="%E5%80%8B%E4%BA%BA%E6%98%AF%E5%BB%BA%E8%AD%B0%E7%94%A8WSL%E5%95%A6...%E6%9C%89%E5%80%8B%E5%A4%A7%E9%9B%BB%E7%A5%9E%E8%AA%AA%E7%94%A8git%E9%82%84%E6%9C%89powershell%E9%83%BD%E7%88%9Bw...%E4%BD%86%E8%80%83%E9%87%8F%E5%8F%AA%E6%98%AF%E5%9F%B7%E8%A1%8C%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A4%8E%E7%9A%84%E6%9D%B1%E6%9D%B1...gitbash%E9%82%84%E6%98%AF%E5%BE%88%E5%A4%A0%E7%94%A8%E4%BA%86%E5%95%A6"><a target="_blank" rel="noopener" href="https://gitforwindows.org/">載點</a></a></li>
+<li>ubuntu安裝discord.js指令<br><code>$sudo npm install discord.js@11.6.3 --save</code><br>:::info</li>
+</ol>
+<p>**==注意==**：ubuntu安裝node及npm。<br><code>$curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -</code><br><code>$sudo apt install nodejs</code><br><code>$node --version</code><br><code>$npm --version</code><br>:::</p>
+<h3 id="步驟三："><a href="#步驟三：" class="headerlink" title="步驟三："></a><i class="fa fa-cube" aria-hidden="true"></i>步驟三：</h3><p>開始動手吧！<br>資料夾內應該有4個檔案和1個資料夾ㄅ，而node_modules應該不必再說明。<br>接下來分別是<code>bot.js</code> <code>package.json</code> <code>package-lock.json</code>和<code>settings.json</code><br>說明：</p>
+<table>
+<thead>
+<tr>
+<th>名稱</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bot.js</td>
+<td align="left">主程式(主角)</td>
+</tr>
+<tr>
+<td>package.json</td>
+<td align="left">向後相容用</td>
+</tr>
+<tr>
+<td>package-lock.json</td>
+<td align="left">紀錄版本用</td>
+</tr>
+<tr>
+<td>settings.json</td>
+<td align="left">機器人的各種設定，等於config</td>
+</tr>
+<tr>
+<td>下面會分別講<code>bot.js</code>及<code>settings.json</code></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>更多關於package.json及package-lock.json的資訊可參考<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10191888">這裡</a>[color=#497399]</p>
+</blockquote>
+<hr>
+<h2 id="pencil-實作囉！"><a href="#pencil-實作囉！" class="headerlink" title=":pencil: 實作囉！"></a>:pencil: 實作囉！</h2><p>接下來會很神奇喔，要開始寫js囉！要認真聽喔！</p>
+<hr>
+<h3 id="準備："><a href="#準備：" class="headerlink" title="準備："></a><i class="fa fa-cube" aria-hidden="true"></i>準備：</h3><p>用你有的文字編輯器打開<code>bot.js</code>內建應該長這樣ㄅ：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;Client, RichEmbed, Discord&#125; = <span class="built_in">require</span>(<span class="string">&#x27;discord.js&#x27;</span>) ;</span><br><span class="line"><span class="keyword">const</span> client = <span class="keyword">new</span> Client ;</span><br><span class="line"><span class="keyword">const</span> settings = <span class="built_in">require</span>(<span class="string">&#x27;./settings.json&#x27;</span>) ;</span><br><span class="line"></span><br><span class="line">client.on(<span class="string">&#x27;ready&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;client.user.tag&#125;</span> 準備好上戰場惹！`</span>) ;</span><br><span class="line">&#125;) ;</span><br><span class="line"></span><br><span class="line">client.on(<span class="string">&#x27;message&#x27;</span>,<span class="function"><span class="params">msg</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(msg.content.startsWith(settings.prefix+<span class="string">&#x27;test&#x27;</span>))&#123;</span><br><span class="line">        msg.channel.send(<span class="string">&#x27;test committed&#x27;</span>) ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;) ;</span><br><span class="line"></span><br><span class="line">client.login(settings.token) ;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>settings.json</code>預設：<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;token&quot;</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;prefix&quot;</span>:<span class="string">&quot;&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+開始囉！</li>
+</ul>
+<hr>
+<h3 id="說明一-｢函式庫｣："><a href="#說明一-｢函式庫｣：" class="headerlink" title="說明一 ｢函式庫｣："></a><i class="fa fa-cube" aria-hidden="true"></i>說明一 ｢函式庫｣：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;Client, RichEmbed, Discord&#125; = <span class="built_in">require</span>(<span class="string">&#x27;discord.js&#x27;</span>) ;</span><br><span class="line"><span class="keyword">const</span> client = <span class="keyword">new</span> Client ;</span><br><span class="line"><span class="keyword">const</span> settings = <span class="built_in">require</span>(<span class="string">&#x27;./settings.json&#x27;</span>) ;</span><br></pre></td></tr></table></figure>
+<p>上面這三行在說啥呢？<br>const是js宣告時在用的，類似於c++中的int、char…etc，但他的宣告更多元。從只是宣告一個小小的變數到引入資料都會用到它。<br>而上面這幾行便是其中的引入(函式庫)的功能。</p>
+<h4 id="細說："><a href="#細說：" class="headerlink" title="細說："></a>細說：</h4><h5 id="第一行："><a href="#第一行：" class="headerlink" title="第一行："></a>第一行：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;Client, RichEmbed, Discord&#125; = <span class="built_in">require</span>(<span class="string">&#x27;discord.js&#x27;</span>) ;</span><br></pre></td></tr></table></figure>
+<p>這行是在說接下來會使用到的函示功能，且這些函式可以在discord.js中被找到。而其中的discord.js則是我們的node_modules。<br>其實這邊很像c++中的：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>這種概念。</p>
+<h5 id="第二行："><a href="#第二行：" class="headerlink" title="第二行："></a>第二行：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> client = <span class="keyword">new</span> Client ;</span><br></pre></td></tr></table></figure>
+<p>這行則是在宣告之後主程式會用到的client這個詞，而它即是上一行引入的Client。</p>
+<h5 id="第三行："><a href="#第三行：" class="headerlink" title="第三行："></a>第三行：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> settings = <span class="built_in">require</span>(<span class="string">&#x27;./settings.json&#x27;</span>) ;</span><br></pre></td></tr></table></figure>
+<p>這行的功用很重要！主要是配合下面的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client.login(settings.token) ;</span><br></pre></td></tr></table></figure>
+<p>引入其指令前綴和機器人代碼，並說明其來源為當前資料夾內(和<code>bot.js</code>同一層)的<code>settings.json</code>檔案。順便說明一下，client.<font color="#e52b2b">login</font>() 這行是整個機器人運行的核心，也就是連線到Discord上需要的那一行指令。</p>
+<hr>
+<h3 id="說明二-｢開機｣："><a href="#說明二-｢開機｣：" class="headerlink" title="說明二 ｢開機｣："></a><i class="fa fa-cube" aria-hidden="true"></i>說明二 ｢開機｣：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">client.on(<span class="string">&#x27;ready&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;client.user.tag&#125;</span> 準備好上戰場惹！`</span>) ;</span><br><span class="line">&#125;) ;</span><br></pre></td></tr></table></figure>
+<p>欸欸欸？這三行又是啥鬼？<br>其實它很單純，它只是一個在機器人上線(開機)時會被啟用的程式罷了。<br>剛剛宣告的client在這裡被用上了，後面加的 <font color="#e52b2b">on</font>() 參數即為｢開機｣(啟動)時會做的動作。<br>裡面的 <font color="#2b8622">‘ready’</font>,()=&gt;{} 即是表示discord內，機器人啟動(準備)完成時要做的。<br>而 <font color="#2b8622">‘ready’</font> 後的 () 放空白則是因為不須宣告任何變數來表示｢啟動｣這個事件。<br>最後，console.<font color="#e52b2b">log</font>() 則是輸出到terminal。括弧內放字串。</p>
+<hr>
+<h3 id="說明三-｢主程式｣："><a href="#說明三-｢主程式｣：" class="headerlink" title="說明三 ｢主程式｣："></a><i class="fa fa-cube" aria-hidden="true"></i>說明三 ｢主程式｣：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">client.on(<span class="string">&#x27;message&#x27;</span>,<span class="function"><span class="params">msg</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(msg.content.startsWith(settings.prefix+<span class="string">&#x27;test&#x27;</span>))&#123;</span><br><span class="line">        msg.channel.send(<span class="string">&#x27;test committed&#x27;</span>) ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;) ;</span><br></pre></td></tr></table></figure>
+<p>欸~~ 你484出現過啊 client.<font color="#e52b2b">on</font>()。<br>是的！它又出現了，為何呢？<br>前面講過這個 client.<font color="#e52b2b">on</font>() 是指機器人在線上時會執行的程式。因此，它作為主程式的母體也是應該的。<br>但是，今天裡面換成了 <font color="#2b8622">‘message’</font> ，是啥意思呢？<br>意思是現在這個程式塊執行的的是｢訊息｣這塊，而現在我們將 message 這個功能簡化宣告為 msg ，因此才會在逗號後有 msg 這個字。</p>
+<hr>
+<h3 id="說明四-｢回答我啊｣："><a href="#說明四-｢回答我啊｣：" class="headerlink" title="說明四 ｢回答我啊｣："></a><i class="fa fa-cube" aria-hidden="true"></i>說明四 ｢回答我啊｣：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(msg.content.startsWith(settings.prefix+<span class="string">&#x27;test&#x27;</span>))&#123;</span><br><span class="line">    msg.channel.send(<span class="string">&#x27;test committed&#x27;</span>) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>喵喵喵~它是做啥的R？好像是…判斷？<br>是滴！它就是一個判斷式，但為何需要它呢？<br>剛剛說過，client.<font color="#e52b2b">on</font>() 是一直執行的，因此，我們需要一個判斷式來判斷用戶是否有｢發言｣。才不會機器人一直自言自語到把聊天室灌爆。也實現了我們所需要、追求的｢一個指令，一個動作｣。</p>
+<p>先來說說msg.content.<font color="#e52b2b">startsWith</font>()<br>這行的意思很簡單，js語法顯現時間，他的意思是：<br>msg<font color="#8c8c8c">(剛剛宣告過了)</font>中的content<font color="#8c8c8c">(直翻意思為內容，講簡單一點就是你msg那條訊息中的所有資料)</font>中的<font color="#e52b2b">startsWith</font>函式<font color="#8c8c8c">(指的是以後方括弧內字串開始的字串)</font></p>
+<p>等等！有沒有發現多了一個settings.prefix在字串前面。<br>這邊的意思是引入前面這邊</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> settings = <span class="built_in">require</span>(<span class="string">&#x27;./settings.json&#x27;</span>) ;</span><br></pre></td></tr></table></figure>
+<p>宣告的<code>settings.json</code>內的prefix。這邊下面會詳細講。</p>
+<p>再來說說msg.channel.<font color="#e52b2b">send</font>() ;<br>他的意思更簡單惹，指的就是msg所在的那個頻道<font color="#8c8c8c">(channel)</font>發送一條訊息(字串)<br>簡單對不對！JS就是這麼簡單\(OuO)/</p>
+<hr>
+<h3 id="說明五-｢settings-json｣："><a href="#說明五-｢settings-json｣：" class="headerlink" title="說明五 ｢settings.json｣："></a><i class="fa fa-cube" aria-hidden="true"></i>說明五 ｢settings.json｣：</h3><p>打開<code>settings.json</code>，你看到了什麼？</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;token&quot;</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;prefix&quot;</span>:<span class="string">&quot;&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>喵嗚~~他阿，其實是一個｢資料檔｣的概念。資料都被存在裡面，方便修改，才不至於每次改某個東西都得去主程式檔案一個一個改。<br>首先，<font color="#75055f">“token”</font>他是將原先<code>bot,js</code>的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client.login(settings.token) ;</span><br></pre></td></tr></table></figure>
+<p>這行字串拉出來並模組化。不然其實也可以寫成：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client.login(&#123;YourToken&#125;) ;</span><br></pre></td></tr></table></figure>
+<p>前面有說道token就是你讓機器人連線到Discord所需的東西。<br>其實他就是一個辨識碼，類斯身分種的概念。下面會講到如何取得這串號碼。他很重要，如果別人有這串號碼，他可以輕易控制你的機器人。</p>
+<p>再來是<font color="#75055f">“prefix”</font>。<br>剛剛上面有說到，他的意思其實也很簡單，就是你寫在<font color="#75055f">“prefix”</font>後的字串可以在其他檔案中被當作字串引用。引用時需寫成 {JSON檔案名}.prefix。</p>
+<hr>
+<h2 id="dog-初探Discord-Devloper-Portal"><a href="#dog-初探Discord-Devloper-Portal" class="headerlink" title=":dog: 初探Discord Devloper Portal"></a>:dog: 初探Discord Devloper Portal</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://discordapp.com/developers/applications">DDP傳送門</a></li>
+</ul>
+<p>上面那個網站去看了嗎？<br>登錄後應該是長這樣ㄅ<br><img src="https://i.imgur.com/j3LaZAE.png"><br>是滴~歡迎來到Discord開發者園地(聽起來像幼稚園?!)<br>這裡有一切可把Didcord自訂義所需的東西！！<br>很好懂對不對!!<br>既然懂了！初めましよ～</p>
+<hr>
+<h3 id="步驟一-｢開使建立你的機器人吧｣："><a href="#步驟一-｢開使建立你的機器人吧｣：" class="headerlink" title="步驟一 ｢開使建立你的機器人吧｣："></a><i class="fa fa-cube" aria-hidden="true"></i>步驟一 ｢開使建立你的機器人吧｣：</h3><p>再來，請點擊右上角的這裡：<br><img src="https://i.imgur.com/P9xm2gp.png"></p>
+<p>按下去後應該畫面會變成這樣：<br><img src="https://i.imgur.com/Mhs4ZsL.png"></p>
+<blockquote>
+<p>選擇一個你自己喜歡的名字吧！</p>
+</blockquote>
+<p>填完後按下 Create 來建立，然後畫面應該會變成這樣：<br><img src="https://i.imgur.com/zNDXVp9.png"><br>先到這裡，主要建立這個機器人｢實體｣就差不多完工了！</p>
+<hr>
+<h3 id="步驟二-｢加入你的Discord伺服器｣："><a href="#步驟二-｢加入你的Discord伺服器｣：" class="headerlink" title="步驟二 ｢加入你的Discord伺服器｣："></a><i class="fa fa-cube" aria-hidden="true"></i>步驟二 ｢加入你的Discord伺服器｣：</h3><p>甚麼？！你還沒有伺服器？？？<br>好吧…聽好…我來說一下<br>首先，先進到你的Discord：<br>在最左邊<br><img src="https://i.imgur.com/qHpULBd.png"></p>
+<blockquote>
+<p>下面有個加號，按下去，照著步驟做，完成。</p>
+</blockquote>
+<p>好了，建立完後我們回到DDP，讓我們把機器人加入你的伺服器ㄅ。<br>點擊左欄中的：<br><img src="https://i.imgur.com/8NRzNa6.png"></p>
+<p>然後你看到的頁面應該是這樣<br><img src="https://i.imgur.com/oSAAxWu.png"></p>
+<p>然後把 bot 選項勾起來<br><img src="https://i.imgur.com/re1X1Hp.png"></p>
+<blockquote>
+<p>藍藍那個</p>
+</blockquote>
+<p>再來下面會出現一個大表格<br><img src="https://i.imgur.com/CG7yhBY.png"><br>這邊就是看你想給你的機器人什麼權限啦<br>一般我為了可以｢暢行無阻｣，我都會勾Admin<br>但是注意！權限越大，就更危險，你越管不動她(像是現在長島ちゃん就會自己生產機器人??!)</p>
+<p>最後一步了，在你填完權限後，在SCOPES下方應該有一行網址<br><img src="https://i.imgur.com/0SMrQUU.png"><br>cp到你的網址列後<br>應該會有這個東西飄出來<br><img src="https://i.imgur.com/9x1pxoO.png"><br>然後再選擇伺服器區選擇你要將其加入的伺服器，かんりお！</p>
+<p>加入伺服器後，由於還沒啟動，因此為離線狀態。<br><img src="https://i.imgur.com/LvJnRYs.png"></p>
+<blockquote>
+<p>她好可黏</p>
+</blockquote>
+<hr>
+<h3 id="步驟三-｢合體！！｣："><a href="#步驟三-｢合體！！｣：" class="headerlink" title="步驟三 ｢合體！！｣："></a><i class="fa fa-cube" aria-hidden="true"></i>步驟三 ｢合體！！｣：</h3><p>好啦~我承認這個標題聽起來很エロ ww<br>但是接下來真滴就是這樣，<del>先插入</del>再儲存起來，讓她啟動。<br>首先，回到你的DDP，並來到左欄Bot這邊<br><img src="https://i.imgur.com/sO3X4xX.png"><br>然後在這裡<br><img src="https://i.imgur.com/j05a7ih.png"><br>看到TOKEN下面那行 ++Click to Reveal Token++ 嗎？<br>按下去並且複製起來！</p>
+<p>接下來，我們回到我們的<code>settings.json</code>並把剛剛複製的TOKEN<del>插</del>貼到這裡後面字串的地方：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;token&quot;</span>:<span class="string">&quot;&quot;</span>,</span><br></pre></td></tr></table></figure>
+
+<p>接下來請確認prefix欄有填寫了並儲存。&gt;wOb</p>
+<hr>
+<h3 id="步驟四-｢スタート！！｣："><a href="#步驟四-｢スタート！！｣：" class="headerlink" title="步驟四 ｢スタート！！｣："></a><i class="fa fa-cube" aria-hidden="true"></i>步驟四 ｢スタート！！｣：</h3><p>全部儲存完後，使用你的Terminal在剛剛有包含<code>bot.js</code>,<code>settings.json</code>,<code>node_modules</code>,<code>package.json</code>,及<code>package-lock.json</code>的資料夾內打入<code>node bot.js</code>或<code>node .</code>如果Terminal沒有跳奇怪的東西，應該會顯示一行#某某某準備好上戰場啦，然後你就會看到你的機器人上線囉！！！<br>ez pz對不對！！</p>
+<hr>
+<h2 id="gear-測試看看ㄅ"><a href="#gear-測試看看ㄅ" class="headerlink" title=":gear: 測試看看ㄅ"></a>:gear: 測試看看ㄅ</h2><p>上線後，預設指令是 <code>&#123;指令前綴&#125;test</code>，如果機器人有回你test commit，おめでとう，你成功寫出自己的第一隻Giftia了！<br>如果想要更詳細的介紹及實地操演可以看下方的影片喔！<br>或是想學有關於機器人可運行的其他指令，可以參閱影片下方的<a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLOEbl4-1QPZZzG9UHV07oDzcjlSLqsNvR">Discord Bot全教學</a>喔！</p>
+<hr>
+<div class="video-container"><iframe src="https://www.youtube.com/embed/60YdAyDs6vY" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
+
+<ul>
+<li>更多 ➜ <a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLOEbl4-1QPZZzG9UHV07oDzcjlSLqsNvR">Discord Bot全教學</a></li>
+</ul>
+<h6 id="copyrights-by-ニオ-do-not-disturb"><a href="#copyrights-by-ニオ-do-not-disturb" class="headerlink" title=" copyrights by ニオ, do not disturb. "></a><font color="#C0D6E4"><i class="fa fa-magic fa-spin" aria-hidden="true"></i> copyrights by ニオ, do not disturb. <i class="fa fa-magic fa-spin" aria-hidden="true"></i></font></h6>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Articles</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A3%BD%E4%BD%9CDiscord%E6%A9%9F%E5%99%A8%E4%BA%BA"><span class="toc-number">1.</span> <span class="toc-text">如何製作Discord機器人</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mega-%E5%A6%82%E4%BD%95%E9%96%8B%E5%A7%8B%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">:mega: 如何開始？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">步驟一：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A"><span class="toc-number">1.1.2.</span> <span class="toc-text">步驟二：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89%EF%BC%9A"><span class="toc-number">1.1.3.</span> <span class="toc-text">步驟三：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pencil-%E5%AF%A6%E4%BD%9C%E5%9B%89%EF%BC%81"><span class="toc-number">1.2.</span> <span class="toc-text">:pencil: 實作囉！</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%96%E5%82%99%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">準備：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AA%AA%E6%98%8E%E4%B8%80-%EF%BD%A2%E5%87%BD%E5%BC%8F%E5%BA%AB%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.2.2.</span> <span class="toc-text">說明一 ｢函式庫｣：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B4%B0%E8%AA%AA%EF%BC%9A"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">細說：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%A1%8C%EF%BC%9A"><span class="toc-number">1.2.2.1.1.</span> <span class="toc-text">第一行：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%A1%8C%EF%BC%9A"><span class="toc-number">1.2.2.1.2.</span> <span class="toc-text">第二行：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%A1%8C%EF%BC%9A"><span class="toc-number">1.2.2.1.3.</span> <span class="toc-text">第三行：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AA%AA%E6%98%8E%E4%BA%8C-%EF%BD%A2%E9%96%8B%E6%A9%9F%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.2.3.</span> <span class="toc-text">說明二 ｢開機｣：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AA%AA%E6%98%8E%E4%B8%89-%EF%BD%A2%E4%B8%BB%E7%A8%8B%E5%BC%8F%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.2.4.</span> <span class="toc-text">說明三 ｢主程式｣：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AA%AA%E6%98%8E%E5%9B%9B-%EF%BD%A2%E5%9B%9E%E7%AD%94%E6%88%91%E5%95%8A%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.2.5.</span> <span class="toc-text">說明四 ｢回答我啊｣：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AA%AA%E6%98%8E%E4%BA%94-%EF%BD%A2settings-json%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.2.6.</span> <span class="toc-text">說明五 ｢settings.json｣：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dog-%E5%88%9D%E6%8E%A2Discord-Devloper-Portal"><span class="toc-number">1.3.</span> <span class="toc-text">:dog: 初探Discord Devloper Portal</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80-%EF%BD%A2%E9%96%8B%E4%BD%BF%E5%BB%BA%E7%AB%8B%E4%BD%A0%E7%9A%84%E6%A9%9F%E5%99%A8%E4%BA%BA%E5%90%A7%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.3.1.</span> <span class="toc-text">步驟一 ｢開使建立你的機器人吧｣：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C-%EF%BD%A2%E5%8A%A0%E5%85%A5%E4%BD%A0%E7%9A%84Discord%E4%BC%BA%E6%9C%8D%E5%99%A8%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.3.2.</span> <span class="toc-text">步驟二 ｢加入你的Discord伺服器｣：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89-%EF%BD%A2%E5%90%88%E9%AB%94%EF%BC%81%EF%BC%81%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.3.3.</span> <span class="toc-text">步驟三 ｢合體！！｣：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E5%9B%9B-%EF%BD%A2%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%EF%BC%81%EF%BC%81%EF%BD%A3%EF%BC%9A"><span class="toc-number">1.3.4.</span> <span class="toc-text">步驟四 ｢スタート！！｣：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gear-%E6%B8%AC%E8%A9%A6%E7%9C%8B%E7%9C%8B%E3%84%85"><span class="toc-number">1.4.</span> <span class="toc-text">:gear: 測試看看ㄅ</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#copyrights-by-%E3%83%8B%E3%82%AA-do-not-disturb"><span class="toc-number">1.4.0.0.0.1.</span> <span class="toc-text"> copyrights by ニオ, do not disturb. </span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&text=Discord bot tutorial"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&title=Discord bot tutorial"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&is_video=false&description=Discord bot tutorial"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Discord bot tutorial&body=Check out this article: http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&title=Discord bot tutorial"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&title=Discord bot tutorial"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&title=Discord bot tutorial"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&title=Discord bot tutorial"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&name=Discord bot tutorial&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://neodoggy.github.io/2019/12/02/Discord-bot-tutorial/&t=Discord bot tutorial"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2021
+    neodoggy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Articles</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Categories</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tags</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

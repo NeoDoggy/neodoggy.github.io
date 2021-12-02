@@ -22,17 +22,23 @@
     
       
         
-          <link rel="shortcut icon" href="/favicon/favicon.ico">
+          
+            <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b375e755015713138c17020ed92e3d3b?s=48">
+          
         
       
       
         
-          <link rel="icon" type="image/png" href="/favicon/favicon-192x192.png" sizes="192x192">
+          
+            <link rel="icon" type="image/png" href="https://www.gravatar.com/avatar/b375e755015713138c17020ed92e3d3b?s=192" sizes="192x192">
+          
         
       
       
         
-          <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/b375e755015713138c17020ed92e3d3b?s=180">
+          
         
       
     
@@ -80,9 +86,9 @@
    --><!--
      --><li><a href="/archives/">Articles</a></li><!--
    --><!--
-     --><li><a href="/tags/">Tags</a></li><!--
-   --><!--
      --><li><a href="/categories/">Categories</a></li><!--
+   --><!--
+     --><li><a href="/tags/">Tags</a></li><!--
    --><!--
      --><li><a href="/search/">Search</a></li><!--
    -->
@@ -127,9 +133,9 @@
      --><!--
        --><li><a href="/archives/">Articles</a></li><!--
      --><!--
-       --><li><a href="/tags/">Tags</a></li><!--
-     --><!--
        --><li><a href="/categories/">Categories</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tags</a></li><!--
      --><!--
        --><li><a href="/search/">Search</a></li><!--
      -->
@@ -159,6 +165,45 @@
 <script src="/js/main.js"></script>
 
 <!-- search -->
+
+  
+<script src="/js/search.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+
+    var $inputArea = $("input#search-input");
+    var $resultArea = document.querySelector("div#search-result");
+
+    $inputArea.focus(function() {
+      var search_path = "search.xml";
+      if (search_path.length == 0) {
+        search_path = "search.xml";
+      }
+      var path = "/" + search_path;
+      searchFunc(path, 'search-input', 'search-result');
+    });
+
+    $inputArea.keydown(function(e) {
+      if (e.which == 13) {
+        e.preventDefault();
+      }
+    });
+
+    var observer = new MutationObserver(function(mutationsList, observer) {
+      if (mutationsList.length == 1) {
+        if (mutationsList[0].addedNodes.length) {
+          $(".search-no-result").hide();
+        } else if (mutationsList[0].removedNodes.length) {
+          $(".search-no-result").show(200);
+        }
+      }
+    });
+
+    observer.observe($resultArea, { childList: true });
+
+  });
+  </script>
 
 <!-- Google Analytics -->
 
