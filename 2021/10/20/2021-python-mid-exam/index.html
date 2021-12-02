@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="D. Production 出題者 : ニオ   Time : 4s   Memory : 512MiB       阿斯托爾福:在輕小說《Fate&#x2F;Apocrypha》中初次登場    僕は君の剣！直譯來說就是:我就是你的劍！每個可愛的男孩子都該有一把短劍為了使短劍配率上升，可愛的阿福決定開一間自動鐵匠鋪因為是第一次嘗試，笨笨阿福不知道要先開幾條生產線但是客人至上，品質總要是最好的吧 !! 因此">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021 python mid exam">
+<meta property="og:url" content="http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/index.html">
+<meta property="og:site_name" content="neodoggy&#39;s blog">
+<meta property="og:description" content="D. Production 出題者 : ニオ   Time : 4s   Memory : 512MiB       阿斯托爾福:在輕小說《Fate&#x2F;Apocrypha》中初次登場    僕は君の剣！直譯來說就是:我就是你的劍！每個可愛的男孩子都該有一把短劍為了使短劍配率上升，可愛的阿福決定開一間自動鐵匠鋪因為是第一次嘗試，笨笨阿福不知道要先開幾條生產線但是客人至上，品質總要是最好的吧 !! 因此">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.imgur.com/ZtaQOVc.png">
+<meta property="article:published_time" content="2021-10-20T08:37:52.000Z">
+<meta property="article:modified_time" content="2021-12-02T08:39:27.443Z">
+<meta property="article:author" content="neodoggy">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="coding">
+<meta property="article:tag" content="exam">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/ZtaQOVc.png">
+    
+    
+      
+        
+          
+            <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b375e755015713138c17020ed92e3d3b?s=48">
+          
+        
+      
+      
+        
+          
+            <link rel="icon" type="image/png" href="https://www.gravatar.com/avatar/b375e755015713138c17020ed92e3d3b?s=192" sizes="192x192">
+          
+        
+      
+      
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/b375e755015713138c17020ed92e3d3b?s=180">
+          
+        
+      
+    
+    <!-- title -->
+    <title>2021 python mid exam</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Articles</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Categories</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tags</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2021/12/02/hello-world/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2019/11/27/Discord-bot-tutorial/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&text=2021 python mid exam"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&title=2021 python mid exam"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&is_video=false&description=2021 python mid exam"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2021 python mid exam&body=Check out this article: http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&title=2021 python mid exam"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&title=2021 python mid exam"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&title=2021 python mid exam"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&title=2021 python mid exam"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&name=2021 python mid exam&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&t=2021 python mid exam"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#D-Production"><span class="toc-number">1.</span> <span class="toc-text">D. Production</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BC%B8%E5%85%A5%E8%AA%AA%E6%98%8E"><span class="toc-number">1.1.</span> <span class="toc-text">輸入說明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BC%B8%E5%87%BA%E8%AA%AA%E6%98%8E"><span class="toc-number">1.2.</span> <span class="toc-text">輸出說明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BC%B8%E5%85%A5%E9%99%90%E5%88%B6"><span class="toc-number">1.3.</span> <span class="toc-text">輸入限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E4%BB%BB%E5%8B%99"><span class="toc-number">1.4.</span> <span class="toc-text">子任務</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AF%84%E4%BE%8B%E8%BC%B8%E5%85%A5-1"><span class="toc-number">1.5.</span> <span class="toc-text">範例輸入 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AF%84%E4%BE%8B%E8%BC%B8%E5%87%BA-1"><span class="toc-number">1.6.</span> <span class="toc-text">範例輸出 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AF%84%E4%BE%8B%E8%BC%B8%E5%85%A5-2"><span class="toc-number">1.7.</span> <span class="toc-text">範例輸入 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AF%84%E4%BE%8B%E8%BC%B8%E5%87%BA-2"><span class="toc-number">1.8.</span> <span class="toc-text">範例輸出 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AF%84%E4%BE%8B%E8%AA%AA%E6%98%8E"><span class="toc-number">1.9.</span> <span class="toc-text">範例說明</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        2021 python mid exam
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">neodoggy</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-10-20T08:37:52.000Z" itemprop="datePublished">2021-10-20</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/coding/">coding</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/coding/" rel="tag">coding</a>, <a class="tag-link-link" href="/tags/exam/" rel="tag">exam</a>, <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="D-Production"><a href="#D-Production" class="headerlink" title="D. Production"></a>D. Production</h1><center> 出題者 : ニオ </center>
+<center> Time : 4s </center>
+<center> Memory : 512MiB </center>
+</br>
+
+<center>
+<img src="https://i.imgur.com/ZtaQOVc.png" width=330>
+<br>
+<font size="1" color="909090">阿斯托爾福:在輕小說《Fate/Apocrypha》中初次登場</font>
+</center>
+<br>
+
+<p><strong>僕は君の剣！</strong><br>直譯來說就是:我就是你的劍！<br>每個可愛的男孩子都該有一把短劍<br>為了使短劍配率上升，可愛的阿福決定開一間自動鐵匠鋪<br>因為是第一次嘗試，笨笨阿福不知道要先開幾條生產線<br>但是客人至上，品質總要是最好的吧 !! 因此多條生產線的最終產品只會選擇品質較高者來出售<br>是這樣的，每條生產線上會有五台檢測機，其功能分別為產出下列描述:  </p>
+<hr>
+<p><strong>A</strong> </p>
+<blockquote>
+<p>敲打煉鐵，練度增加 ( $p+q$ )</p>
+</blockquote>
+<p><strong>B</strong></p>
+<blockquote>
+<p>過度用力，練度減少 ( $p-q$ )</p>
+</blockquote>
+<p><strong>C</strong></p>
+<blockquote>
+<p>加熱加工，練度加乘 ( $p \times q$ )</p>
+</blockquote>
+<p><strong>D</strong></p>
+<blockquote>
+<p>太熱融化，練度除以 ( $p \div q$ )</p>
+</blockquote>
+<p><strong>E</strong></p>
+<blockquote>
+<p>機器過熱，生產線無條件停止，不再生產</p>
+</blockquote>
+<hr>
+<p>勇者，請幫香香阿福判斷出它可以生產出的最好練度吧 !!!  </p>
+<h2 id="輸入說明"><a href="#輸入說明" class="headerlink" title="輸入說明"></a>輸入說明</h2><p>多筆測資( $a_i$ )，每筆測資第一行為當筆測資資料數<br>若為 $0$ 則結束，詳情請見範測<br>每筆測資有兩個字串 $r$ 及 $k$<br>其分別代表機器判斷的資料及程度  </p>
+<ul>
+<li>每條生產線初始練度均為 $0$</li>
+<li>生產線從第一條算起</li>
+<li>若機器過熱 $(E)$ ，當條生產線練度則算到過熱前，且程度 $(k_i)$ 必為 $0$</li>
+<li>若機器總練度為負，當條生產線報廢不算</li>
+<li>不會有除以 $0$ 的情況亦不會有任何不合法計算</li>
+</ul>
+<h2 id="輸出說明"><a href="#輸出說明" class="headerlink" title="輸出說明"></a>輸出說明</h2><p>在有解情況下輸出三行<br>第一行輸出 “#{n} Best :”(不包含括號)，詳情請見範測<br>第二行輸出最好練度至小數點後第四位，第三行則為第幾條生產線<br>若沒有生產線符合則輸出 “Chop off!!” (不含引號)  </p>
+<h2 id="輸入限制"><a href="#輸入限制" class="headerlink" title="輸入限制"></a>輸入限制</h2><ul>
+<li>$a_i \leq 10^3$</li>
+<li>$len(r)=len(k)$</li>
+<li>$0 \le k_i \le 9$</li>
+</ul>
+<h2 id="子任務"><a href="#子任務" class="headerlink" title="子任務"></a>子任務</h2><table>
+<thead>
+<tr>
+<th>Subtask</th>
+<th>Score</th>
+<th>Contraints</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>30</td>
+<td>單筆測資 $i=1$</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+<td>所有生產線練度均 $\geq 0$</td>
+</tr>
+<tr>
+<td>3</td>
+<td>60</td>
+<td>題目說明，無特別條件</td>
+</tr>
+</tbody></table>
+<h2 id="範例輸入-1"><a href="#範例輸入-1" class="headerlink" title="範例輸入 1"></a>範例輸入 1</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">BBAA</span><br><span class="line">5277</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+<h2 id="範例輸出-1"><a href="#範例輸出-1" class="headerlink" title="範例輸出 1"></a>範例輸出 1</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#1 Best :</span><br><span class="line">7.0000</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<h2 id="範例輸入-2"><a href="#範例輸入-2" class="headerlink" title="範例輸入 2"></a>範例輸入 2</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">AABB</span><br><span class="line">5277</span><br><span class="line">ABCDE</span><br><span class="line">12340</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+<h2 id="範例輸出-2"><a href="#範例輸出-2" class="headerlink" title="範例輸出 2"></a>範例輸出 2</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Chop off!!</span><br></pre></td></tr></table></figure>
+
+<h2 id="範例說明"><a href="#範例說明" class="headerlink" title="範例說明"></a>範例說明</h2><p>範例一中執行序為 $(BBAA,5277)=0-5-2+7+7=7$<br>因為只有一條生產線，因此最佳生產線為它  </p>
+<p>範例二中第一條生產線執行序為 $(AABB,5277)=0+5+2-7-7=-7$ 此條生產線報廢<br>第二條生產線執行序為 $(ABCDE,12340)=0+1-2\times3\div4=-\frac{3}{4}$ 此條生產線也報廢<br>因此此筆測資沒有一條符合因此輸出 “Chop off!!”</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Articles</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#D-Production"><span class="toc-number">1.</span> <span class="toc-text">D. Production</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BC%B8%E5%85%A5%E8%AA%AA%E6%98%8E"><span class="toc-number">1.1.</span> <span class="toc-text">輸入說明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BC%B8%E5%87%BA%E8%AA%AA%E6%98%8E"><span class="toc-number">1.2.</span> <span class="toc-text">輸出說明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BC%B8%E5%85%A5%E9%99%90%E5%88%B6"><span class="toc-number">1.3.</span> <span class="toc-text">輸入限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E4%BB%BB%E5%8B%99"><span class="toc-number">1.4.</span> <span class="toc-text">子任務</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AF%84%E4%BE%8B%E8%BC%B8%E5%85%A5-1"><span class="toc-number">1.5.</span> <span class="toc-text">範例輸入 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AF%84%E4%BE%8B%E8%BC%B8%E5%87%BA-1"><span class="toc-number">1.6.</span> <span class="toc-text">範例輸出 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AF%84%E4%BE%8B%E8%BC%B8%E5%85%A5-2"><span class="toc-number">1.7.</span> <span class="toc-text">範例輸入 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AF%84%E4%BE%8B%E8%BC%B8%E5%87%BA-2"><span class="toc-number">1.8.</span> <span class="toc-text">範例輸出 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AF%84%E4%BE%8B%E8%AA%AA%E6%98%8E"><span class="toc-number">1.9.</span> <span class="toc-text">範例說明</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&text=2021 python mid exam"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&title=2021 python mid exam"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&is_video=false&description=2021 python mid exam"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2021 python mid exam&body=Check out this article: http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&title=2021 python mid exam"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&title=2021 python mid exam"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&title=2021 python mid exam"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&title=2021 python mid exam"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&name=2021 python mid exam&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://neodoggy.github.io/2021/10/20/2021-python-mid-exam/&t=2021 python mid exam"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2019-2021
+    neodoggy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Articles</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Categories</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tags</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
