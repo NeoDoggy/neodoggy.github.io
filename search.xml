@@ -33,25 +33,6 @@
     
     
     <entry>
-      <title>hello world</title>
-      <link href="/2021/12/02/hello-world/"/>
-      <url>/2021/12/02/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>hello world</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> test </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>python moodle</title>
       <link href="/2021/11/29/python-moodle/"/>
       <url>/2021/11/29/python-moodle/</url>
