@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=zh>
+<html lang=en>
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
@@ -12,9 +12,9 @@
 <meta property="og:url" content="http://neodoggy.github.io/2022/02/09/windows-%E5%8E%BB%E9%99%A4%E9%A0%90%E8%A8%AD%E8%87%AA%E8%A8%82%E5%8C%96/index.html">
 <meta property="og:site_name" content="neodoggy&#39;s blog">
 <meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243cd &#x2F;d %APPDATA%@ECHO off@ECHO@ECHO ***************************************************************************************@">
-<meta property="og:locale">
+<meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-02-09T15:51:49.000Z">
-<meta property="article:modified_time" content="2022-02-09T15:52:42.698Z">
+<meta property="article:modified_time" content="2022-02-09T16:03:01.673Z">
 <meta property="article:author" content="neodoggy">
 <meta property="article:tag" content="app-dev">
 <meta name="twitter:card" content="summary">
@@ -91,15 +91,15 @@
       <ul>
         
         
-        <li><a class="icon" aria-label="Post Següent" href="/2021/12/15/python%E7%A7%98%E7%AC%88/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/2021/12/15/python%E7%A7%98%E7%AC%88/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
-        <li><a class="icon" aria-label="Adalt" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="Compartir Post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">Post Anterior</span>
-      <span id="i-next" class="info" style="display:none;">Post Següent</span>
-      <span id="i-top" class="info" style="display:none;">Adalt</span>
-      <span id="i-share" class="info" style="display:none;">Compartir Post</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -168,7 +168,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">cd /d %APPDATA%</span><br><span class="line">@ECHO off</span><br><span class="line">@ECHO</span><br><span class="line">@ECHO ***************************************************************************************</span><br><span class="line">@ECHO  REMOVE THE DEFAULT TASKBAR LAYOUT SETTING</span><br><span class="line">@ECHO ***************************************************************************************</span><br><span class="line">@ECHO cd ..</span><br><span class="line">cd ..</span><br><span class="line">@ECHO.</span><br><span class="line">@ECHO cd /d Local\Microsoft\Windows\Shell\</span><br><span class="line">cd /d Local\Microsoft\Windows\Shell\</span><br><span class="line">@ECHO.</span><br><span class="line">@ECHO DEL /F /Q *.*</span><br><span class="line">DEL /F /Q *.*</span><br><span class="line">@ECHO.</span><br><span class="line">@ECHO cd /d C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\</span><br><span class="line">cd /d C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\</span><br><span class="line">@ECHO.</span><br><span class="line">@ECHO DEL /F /Q *.*</span><br><span class="line">DEL /F /Q *.*</span><br><span class="line">@ECHO.</span><br><span class="line">@ECHO ***********************************************************************</span><br><span class="line">@ECHO  Remove Sccuess. The System will reboot after enter.</span><br><span class="line">@ECHO ***********************************************************************</span><br><span class="line">Color 2f</span><br><span class="line">@ECHO ***********************************************************************</span><br><span class="line">@ECHO     PPPPPPPPpp            A            sSSSSSSSSs       sSSSSSSSSs</span><br><span class="line">@ECHO     PPP       PPp        AAA         SSs        SS    SSs        SS</span><br><span class="line">@ECHO     PPP        PPP      AA AA       SSS              SSS</span><br><span class="line">@ECHO     PPP        PPP     AA   AA      SSS              SSS</span><br><span class="line">@ECHO     PPP       PPP     AA     AA      SSSSSs           SSSSSs</span><br><span class="line">@ECHO     PPPPPPPPPP       aAA     AAa          SSSSSs           SSSSSs</span><br><span class="line">@ECHO     PPP             aAAAAAAAAAAAa              SSS              SSS</span><br><span class="line">@ECHO     PPP             AAA       AAA              SSs              SSs</span><br><span class="line">@ECHO     PPP            AA           AA  Ss        SSS   Ss         SSS</span><br><span class="line">@ECHO     PPP           AA             AA  SSSSSSSSSS       SSSSSSSSSS</span><br><span class="line">@ECHO ***********************************************************************</span><br><span class="line">@ECHO.</span><br><span class="line">GOTO :PASSEND</span><br><span class="line"></span><br><span class="line">:PASSEND</span><br><span class="line">PAUSE</span><br><span class="line">shutdown -r -t 0</span><br></pre></td></tr></table></figure>
+    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">cd /d %APPDATA%</span><br><span class="line">@ECHO off</span><br><span class="line">@ECHO</span><br><span class="line">@ECHO ***************************************************************************************</span><br><span class="line">@ECHO  REMOVE THE DEFAULT TASKBAR LAYOUT SETTING</span><br><span class="line">@ECHO ***************************************************************************************</span><br><span class="line">@ECHO cd ..</span><br><span class="line">cd ..</span><br><span class="line">@ECHO.</span><br><span class="line">@ECHO cd /d Local\Microsoft\Windows\Shell\</span><br><span class="line">cd /d Local\Microsoft\Windows\Shell\</span><br><span class="line">@ECHO.</span><br><span class="line">@ECHO DEL /F /Q *.*</span><br><span class="line">DEL /F /Q *.*</span><br><span class="line">@ECHO.</span><br><span class="line">@ECHO cd /d C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\</span><br><span class="line">cd /d C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\</span><br><span class="line">@ECHO.</span><br><span class="line">@ECHO DEL /F /Q *.*</span><br><span class="line">DEL /F /Q *.*</span><br><span class="line">@ECHO.</span><br><span class="line">@ECHO ***********************************************************************</span><br><span class="line">@ECHO  Remove Sccuess. The System will reboot after enter.</span><br><span class="line">@ECHO ***********************************************************************</span><br><span class="line">Color 2f</span><br><span class="line">@ECHO ***********************************************************************</span><br><span class="line">@ECHO     PPPPPPPPpp            A            sSSSSSSSSs       sSSSSSSSSs</span><br><span class="line">@ECHO     PPP       PPp        AAA         SSs        SS    SSs        SS</span><br><span class="line">@ECHO     PPP        PPP      AA AA       SSS              SSS</span><br><span class="line">@ECHO     PPP        PPP     AA   AA      SSS              SSS</span><br><span class="line">@ECHO     PPP       PPP     AA     AA      SSSSSs           SSSSSs</span><br><span class="line">@ECHO     PPPPPPPPPP       aAA     AAa          SSSSSs           SSSSSs</span><br><span class="line">@ECHO     PPP             aAAAAAAAAAAAa              SSS              SSS</span><br><span class="line">@ECHO     PPP             AAA       AAA              SSs              SSs</span><br><span class="line">@ECHO     PPP            AA           AA  Ss        SSS   Ss         SSS</span><br><span class="line">@ECHO     PPP           AA             AA  SSSSSSSSSS       SSSSSSSSSS</span><br><span class="line">@ECHO ***********************************************************************</span><br><span class="line">@ECHO.</span><br><span class="line">GOTO :PASSEND</span><br><span class="line"></span><br><span class="line">:PASSEND</span><br><span class="line">PAUSE</span><br><span class="line">shutdown -r -t 0</span><br></pre></td></tr></table></figure>
   </div>
 </article>
 
@@ -220,10 +220,10 @@
     </div>
 
     <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menú</a>
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
         <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Compartir</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Cap amunt</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
@@ -284,7 +284,7 @@
   <script type="text/javascript">
   $(function() {
     // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
     btn += '<i class="far fa-clone"></i>';
     btn += '</span>'; 
     // mount it!
@@ -295,7 +295,7 @@
       }
     });
     clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.trigger.setAttribute('aria-label', "Copied!");
       e.clearSelection();
     })
   })
