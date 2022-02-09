@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>windows 去除預設自訂化</title>
+      <link href="/2022/02/09/windows-%E5%8E%BB%E9%99%A4%E9%A0%90%E8%A8%AD%E8%87%AA%E8%A8%82%E5%8C%96/"/>
+      <url>/2022/02/09/windows-%E5%8E%BB%E9%99%A4%E9%A0%90%E8%A8%AD%E8%87%AA%E8%A8%82%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">cd /d %APPDATA%</span><br><span class="line">@ECHO off</span><br><span class="line">@ECHO</span><br><span class="line">@ECHO ***************************************************************************************</span><br><span class="line">@ECHO  REMOVE THE DEFAULT TASKBAR LAYOUT SETTING</span><br><span class="line">@ECHO ***************************************************************************************</span><br><span class="line">@ECHO cd ..</span><br><span class="line">cd ..</span><br><span class="line">@ECHO.</span><br><span class="line">@ECHO cd /d Local\Microsoft\Windows\Shell\</span><br><span class="line">cd /d Local\Microsoft\Windows\Shell\</span><br><span class="line">@ECHO.</span><br><span class="line">@ECHO DEL /F /Q *.*</span><br><span class="line">DEL /F /Q *.*</span><br><span class="line">@ECHO.</span><br><span class="line">@ECHO cd /d C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\</span><br><span class="line">cd /d C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\</span><br><span class="line">@ECHO.</span><br><span class="line">@ECHO DEL /F /Q *.*</span><br><span class="line">DEL /F /Q *.*</span><br><span class="line">@ECHO.</span><br><span class="line">@ECHO ***********************************************************************</span><br><span class="line">@ECHO  Remove Sccuess. The System will reboot after enter.</span><br><span class="line">@ECHO ***********************************************************************</span><br><span class="line">Color 2f</span><br><span class="line">@ECHO ***********************************************************************</span><br><span class="line">@ECHO     PPPPPPPPpp            A            sSSSSSSSSs       sSSSSSSSSs</span><br><span class="line">@ECHO     PPP       PPp        AAA         SSs        SS    SSs        SS</span><br><span class="line">@ECHO     PPP        PPP      AA AA       SSS              SSS</span><br><span class="line">@ECHO     PPP        PPP     AA   AA      SSS              SSS</span><br><span class="line">@ECHO     PPP       PPP     AA     AA      SSSSSs           SSSSSs</span><br><span class="line">@ECHO     PPPPPPPPPP       aAA     AAa          SSSSSs           SSSSSs</span><br><span class="line">@ECHO     PPP             aAAAAAAAAAAAa              SSS              SSS</span><br><span class="line">@ECHO     PPP             AAA       AAA              SSs              SSs</span><br><span class="line">@ECHO     PPP            AA           AA  Ss        SSS   Ss         SSS</span><br><span class="line">@ECHO     PPP           AA             AA  SSSSSSSSSS       SSSSSSSSSS</span><br><span class="line">@ECHO ***********************************************************************</span><br><span class="line">@ECHO.</span><br><span class="line">GOTO :PASSEND</span><br><span class="line"></span><br><span class="line">:PASSEND</span><br><span class="line">PAUSE</span><br><span class="line">shutdown -r -t 0</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> devloping </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> app-dev </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python秘笈</title>
       <link href="/2021/12/15/python%E7%A7%98%E7%AC%88/"/>
       <url>/2021/12/15/python%E7%A7%98%E7%AC%88/</url>
