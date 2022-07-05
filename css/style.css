@@ -439,6 +439,11 @@ body td {
   src: url("../lib/zpix/zpix.woff2") format('woff2');
   font-weight: normal;
 }
+@font-face {
+  font-style: normal;
+  font-family: "Meslo LG";
+  src: local("Meslo LG S"), url("../lib/meslo-LG/MesloLGS-Regular.ttf") format("truetype");
+}
 *,
 *:before,
 *:after {

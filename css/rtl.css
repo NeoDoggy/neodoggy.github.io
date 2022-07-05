@@ -1,4 +1,9 @@
 @font-face {
+  font-family: zpix;
+  src: url("../lib/zpix/zpix.woff2") format('woff2');
+  font-weight: normal;
+}
+@font-face {
   font-family: Vazir;
   src: url("../lib/vazir-font/Vazir.eot");
   src: url("../lib/vazir-font/Vazir.eot?#iefix") format('embedded-opentype'), url("../lib/vazir-font/Vazir.woff2") format('woff2'), url("../lib/vazir-font/Vazir.woff") format('woff'), url("../lib/vazir-font/Vazir.ttf") format('truetype');
