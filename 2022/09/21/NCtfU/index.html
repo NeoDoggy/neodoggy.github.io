@@ -20,12 +20,15 @@
 <meta property="og:image" content="https://i.imgur.com/keX0ekR.png">
 <meta property="og:image" content="https://i.imgur.com/32lqi5o.png">
 <meta property="article:published_time" content="2022-09-21T12:00:00.000Z">
-<meta property="article:modified_time" content="2022-09-30T18:24:19.392Z">
+<meta property="article:modified_time" content="2022-09-30T21:13:41.240Z">
 <meta property="article:author" content="neodoggy">
 <meta property="article:tag" content="ctf">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="php">
+<meta property="article:tag" content="pwn">
+<meta property="article:tag" content="crypto">
+<meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.imgur.com/pFns7nm.png">
     
@@ -86,11 +89,11 @@
      --><!--
        --><li><a href="/archives/">Articles</a></li><!--
      --><!--
+       --><li><a href="/tags/">Tags</a></li><!--
+     --><!--
        --><li><a href="/categories/">Categories</a></li><!--
      --><!--
        --><li><a href="/artworks/">Artworks</a></li><!--
-     --><!--
-       --><li><a href="/tags/">Tags</a></li><!--
      --><!--
        --><li><a href="/search/">Search</a></li><!--
      -->
@@ -169,7 +172,7 @@
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link-link" href="/tags/ctf/" rel="tag">ctf</a>, <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>, <a class="tag-link-link" href="/tags/php/" rel="tag">php</a>, <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>
+        <a class="tag-link-link" href="/tags/crypto/" rel="tag">crypto</a>, <a class="tag-link-link" href="/tags/ctf/" rel="tag">ctf</a>, <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>, <a class="tag-link-link" href="/tags/php/" rel="tag">php</a>, <a class="tag-link-link" href="/tags/pwn/" rel="tag">pwn</a>, <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>, <a class="tag-link-link" href="/tags/web/" rel="tag">web</a>
     </div>
 
 
@@ -209,6 +212,7 @@
 <p>flag: <code>NCtfU&#123;U_H4V3_C47CH_7H3_RUNN1N9_FL49_1259eb4388cd41b8983518dc0bb3bfa6&#125;</code></p>
 <h3 id="You-Shall-Not-Pass-Revenge"><a href="#You-Shall-Not-Pass-Revenge" class="headerlink" title="You Shall Not Pass Revenge"></a>You Shall Not Pass Revenge</h3><p><code>$echo chmod 777 flag &gt; update.sh</code></p>
 <p>flag: <code>NCtfU&#123;U_C4N_RUN_W17H_R0OT_3VEN_U_4R3_N07_ROOT_US3R_73a096095c814d7fae5d683240c406bb&#125;</code></p>
+<hr>
 <h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="Baby-Web-Ping"><a href="#Baby-Web-Ping" class="headerlink" title="Baby Web Ping"></a>Baby Web Ping</h3><p>A basic command injection, no need to bypass.<br>code:</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Ping&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form action=<span class="string">&quot;.&quot;</span> method=<span class="string">&quot;GET&quot;</span>&gt;</span><br><span class="line">        CMD: &lt;input type=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;cmd&quot;</span> value=<span class="string">&quot;ping www.google.com.tw&quot;</span>&gt; &lt;input type=<span class="string">&quot;submit&quot;</span> value=<span class="string">&quot;run command!&quot;</span>&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">    &lt;pre&gt;<span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">        set_time_limit(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">empty</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>]))</span><br><span class="line">            <span class="keyword">echo</span> htmlentities(system(<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>]));</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">    <span class="meta">?&gt;</span>&lt;/pre&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <p>payload: <code>cat flag</code></p>
@@ -262,11 +266,11 @@ flag: <code>NCtfU&#123;sql_injection_strikes_again_fc08d00973c94001a32c82184e10f
          
           <li><a href="/archives/">Articles</a></li>
          
+          <li><a href="/tags/">Tags</a></li>
+         
           <li><a href="/categories/">Categories</a></li>
          
           <li><a href="/artworks/">Artworks</a></li>
-         
-          <li><a href="/tags/">Tags</a></li>
          
           <li><a href="/search/">Search</a></li>
         
@@ -323,11 +327,11 @@ flag: <code>NCtfU&#123;sql_injection_strikes_again_fc08d00973c94001a32c82184e10f
      --><!--
        --><li><a href="/archives/">Articles</a></li><!--
      --><!--
+       --><li><a href="/tags/">Tags</a></li><!--
+     --><!--
        --><li><a href="/categories/">Categories</a></li><!--
      --><!--
        --><li><a href="/artworks/">Artworks</a></li><!--
-     --><!--
-       --><li><a href="/tags/">Tags</a></li><!--
      --><!--
        --><li><a href="/search/">Search</a></li><!--
      -->
