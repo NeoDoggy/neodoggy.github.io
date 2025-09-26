@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>3D portfolio</title>
+      <link href="/2025/09/26/3D-portfolio/"/>
+      <url>/2025/09/26/3D-portfolio/</url>
+      
+        <content type="html"><![CDATA[<p><a href="/3Dportfolio">這裡</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> devloping </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ThreeJS </tag>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>コミケ自販機</title>
+      <link href="/2025/03/06/%E3%82%B3%E3%83%9F%E3%82%B1%E8%87%AA%E8%B2%A9%E6%A9%9F/"/>
+      <url>/2025/03/06/%E3%82%B3%E3%83%9F%E3%82%B1%E8%87%AA%E8%B2%A9%E6%A9%9F/</url>
+      
+        <content type="html"><![CDATA[<p><a href="/comiket">這裡</a></p><image src="https://i.imgur.com/Sxd68s5.gif">]]></content>
+      
+      
+      <categories>
+          
+          <category> devloping </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> comiket </tag>
+            
+            <tag> dart </tag>
+            
+            <tag> flutter </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2023 DS midterm day3</title>
       <link href="/2023/11/09/2023-DS-midterm-day3/"/>
       <url>/2023/11/09/2023-DS-midterm-day3/</url>
